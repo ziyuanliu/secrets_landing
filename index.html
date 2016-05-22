@@ -83,6 +83,7 @@
 				        	<input class="form-control" style="width:240px" id="phone" name="phone" type="tel" placeholder="(650) 123-4567" />
 				        	<br/>
 				        </form>
+				        <div id="result_message">  </div>
 				    </div>
 
 
@@ -154,10 +155,15 @@ branch.init('key_live_dkk2vU8mYKkccxyrNvRymemjFymLz9VO');
                 var options = {};
                 var callback = function(err, result) {
                     if (err) {
-                        alert("Sorry, something went wrong.");
+                        alert("Sorry, please remove pop up blocker and try again.");
+                        $('#result_message').css('color', 'red');
+                        $('#result_message').text("Text message failed to send. Please disable pop up blocker and try again.");
+                        
                     }
                     else {
                         alert("Text Message sent!");
+                        $('#result_message').css('color', 'green');
+                        $('#result_message').text("Text message was sent to " + phone + "!");
                     }
                 };
                 branch.sendSMS(phone, linkData, options, callback);

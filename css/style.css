@@ -585,3 +585,8 @@ header, .social{
     	color: white;
     }
 }
+
+
+#result_message{
+	color:green;
+}
